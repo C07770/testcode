@@ -3,9 +3,7 @@
 //******* SIMULATION ********//
 
 var simJSON, simXML;
-
 simJSON = '{"person":[{"id":10,"firstName":"John","lastName":"Doe"},{"id":5,"firstName":"Jack","lastName":"Doe"},{"id":7,"firstName":"James","lastName":"Doe"}]}';
-
 simXML = '<persons><person><id>3</id><firstName>Jen</firstName><lastName>Doe</lastName></person> <person><id>6</id><firstName>Stephanie</firstName><lastName>Joe</lastName></person> <person><id>1</id><firstName>Victoria</firstName><lastName>Doe</lastName></person></persons>';
 
 var simulation = function (proxy, dataType, data, delay) {
@@ -97,28 +95,28 @@ Ext.define('MyApp.view.user.List', {
 			flex : 1
 		} ];
         
-        this.dockedItems = [{
-            xtype: 'toolbar',
-            dock: 'bottom',
-            ui: 'footer',
-            items: ['->',{
-                xtype: 'displayfield',
-                value: 'Ready',
-                listeners : {
-                    render :function(me) {  
-                        Ext.TaskManager.start({
-                            run : function() {
-                            me.setValue(Ext.Date.format(new Date(),'H:i:s'));
-                            },
-                            interval : 1000,
-                            scope : me
-                        });
-                    }
-                }            
-            }]
-        }];
+	        this.dockedItems = [{
+	            xtype: 'toolbar',
+	            dock: 'bottom',
+	            ui: 'footer',
+	            items: ['->',{
+	                xtype: 'displayfield',
+	                value: 'Ready',
+	                listeners : {
+	                    render :function(me) {  
+	                        Ext.TaskManager.start({
+	                            run : function() {
+	                            	me.setValue(Ext.Date.format(new Date(),'H:i:s'));
+	                            },
+	                            interval : 1000,
+	                            scope : me
+	                        });
+	                    }
+	                }            
+	            }]
+	        }];
         
-		this.callParent(arguments);
+	this.callParent(arguments);
 	}
 });
 
